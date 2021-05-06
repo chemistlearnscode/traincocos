@@ -12,18 +12,25 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        prefab:cc.Prefab,
-        // node:cc.Node,
+        username:cc.EditBox,
+        password:cc.EditBox,
+        labelusername:cc.Label,
+        labelpassword:cc.Label
     },
 
     // LIFE-CYCLE CALLBACKS:
-
-    onLoad () {
-        for (let i=0;i<15;i++){
-            let item=cc.instantiate(this.prefab);
-            item.parent = this.node;
-        }
+    showInstruction(){
+        this.labelusername.string="Username chi nhan A-Z,a-z,0-9. Username ko qua 10 ky tu";
+        this.labelpassword.string="Password min 6 ky tu, max 10 ky tu,can it nhat 1 chu thuong 1 chu hoa va 1 so";
     },
+
+    throwError(){
+        var us=/[A-Za-z0-9]+/;
+        var pw="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$";
+
+    },
+
+    // onLoad () {},
 
     start () {
 

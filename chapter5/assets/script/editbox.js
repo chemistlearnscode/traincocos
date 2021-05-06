@@ -14,19 +14,31 @@ cc.Class({
     properties: {
         editbox:cc.EditBox,
         label:cc.Label,
+        button:cc.Button,
+    },
+    showLabel(){
+            this.label.string="Please input your phone number";
     },
 
     // LIFE-CYCLE CALLBACKS:
     checkLength(){
-        if(this.editbox.textLabel.string.length==10){
-            this.label.active=false;
+        if(this.editbox.string.length===10){
+            this.label.enabled=false;
+            // cc.log("abc");
         }
     },
 
-    // onLoad () {},
+    showButton(){
+        this.button.node.active=true;
+    },
+
+    onLoad () {
+        this.button.node.active=false;
+    },
 
     start () {
-
+        // this.button.active=false;
+        // cc.log(this.button);
     },
 
     // update (dt) {},
