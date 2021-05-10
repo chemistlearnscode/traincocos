@@ -36,7 +36,7 @@ cc.Class({
         }else if ( pw == false){
             this.labelpassword.string = "Loi roi nghen";
         }else{
-            this.richText.string = "Chao mung "+ this.username.string+ " da dang nhap "+ timeformat.toLocaleTimeString('en-US');
+            this.richText.string = "Chao mung "+"<u><color=#ff0000>"+ this.username.string+ "</u></color> da dang nhap <color=#ffff00><i>"+ timeformat.toLocaleTimeString('en-US')+ "</c></i>";
         }
     },
 
