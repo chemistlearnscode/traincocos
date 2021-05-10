@@ -15,7 +15,8 @@ cc.Class({
         username:cc.EditBox,
         password:cc.EditBox,
         labelusername:cc.Label,
-        labelpassword:cc.Label
+        labelpassword:cc.Label,
+        richText: cc.RichText,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -25,9 +26,18 @@ cc.Class({
     },
 
     throwError(){
-        var us=/[A-Za-z0-9]+/;
-        var pw="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$";
-
+        const timeformat = new Date
+        var us=/[A-Za-z0-9]/.test(this.username.string);
+        var pw=/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}/.test(this.password.string);
+        cc.log(us);
+        cc.log(pw);
+        if (us == false){
+            this.labelusername.string = "Loi roi nghen";
+        }else if ( pw == false){
+            this.labelpassword.string = "Loi roi nghen";
+        }else{
+            this.richText.string = "Chao mung "+ this.username.string+ " da dang nhap "+ timeformat.toLocaleTimeString('en-US');
+        }
     },
 
     // onLoad () {},
